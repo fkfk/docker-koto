@@ -37,6 +37,8 @@ RUN set -x \
  && mkdir /home/koto/data \
  && mkdir /home/koto/.koto \
  && koto-fetch-params
+# force copy koto.conf
+RUN echo 1
 COPY koto.conf /home/koto/.koto/koto.conf
 
 VOLUME /home/koto/.koto
@@ -46,7 +48,7 @@ ENV RPCPASSWORD koto
 ENV RPCALLOWIP "172.0.0.0/8"
 ENV DISABLEWALLET 1
 
-EXPOSE 8432 8433
+EXPOSE 18432 18433
 
 WORKDIR /home/koto
-CMD /usr/bin/kotod --rpcuser=$RPCUSER --rpcpassword=$RPCPASSWORD --rpcallowip=$RPCALLOWIP --disablewallet=$DISABLEWALLET
+CMD /usr/bin/kotod --rpcuser=$RPCUSER --rpcpassword=$RPCPASSWORD --rpcallowip=$RPCALLOWIP --disablewallet=$DISABLEWALLET --testnet=1
