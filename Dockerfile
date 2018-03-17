@@ -37,6 +37,8 @@ RUN set -x \
  && mkdir /home/koto/data \
  && mkdir /home/koto/.koto \
  && koto-fetch-params
+# force copy koto.conf
+RUN echo 1
 COPY koto.conf /home/koto/.koto/koto.conf
 
 VOLUME /home/koto/.koto
