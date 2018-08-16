@@ -18,11 +18,11 @@ RUN set -x \
 RUN set -x \
  && mkdir -p /tmp/build \
  && cd /tmp/build \
- && wget https://github.com/koto-dev/koto/archive/dev-1.0.15.tar.gz \
- && tar xf dev-1.0.15.tar.gz
+ && wget https://github.com/KotoDevelopers/koto/archive/v1.1.0.tar.gz \
+ && tar xf v1.1.0.tar.gz
 RUN set -x\
- && cd /tmp/build/koto-dev-1.0.15 \
- && ./zcutil/build.sh --disable-rust \
+ && cd /tmp/build/koto-1.1.0 \
+ && ./zcutil/build.sh \
  && install -Dm755 src/koto-cli /usr/bin/koto-cli \
  && install -Dm755 src/kotod /usr/bin/kotod \
  && install -Dm755 src/koto-tx /usr/bin/koto-tx \
