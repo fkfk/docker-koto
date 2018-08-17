@@ -22,6 +22,7 @@ RUN set -x \
  && tar xf v1.1.0.tar.gz
 RUN set -x\
  && cd /tmp/build/koto-1.1.0 \
+ && patch -p1 < ./zcutil/bitcore.diff \
  && ./zcutil/build.sh \
  && install -Dm755 src/koto-cli /usr/bin/koto-cli \
  && install -Dm755 src/kotod /usr/bin/kotod \
